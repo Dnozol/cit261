@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Saver/Loader</title>
+
+    <script>
+        function findStory() {
+            var name = document.getElementById("storyTitle").value;
+            var story = localStorage.getItem(name);
+            document.getElementById("storyLocation").value = story;
+        }
+        
+        function saveStory() {
+            var name = document.getElementById("storyTitle").value;
+            var story = document.getElementById("story").value;
+            localStorage.setItem(name, story);
+            document.getElementById("story").value = "";
+            alert(name + " has been saved");
+        }
+
+        function showStory() {
+            var story = document.getElementById("story").value;
+            document.getElementById("storyLocation").innerHTML = story;
+        }
+    </script>
+
+    <style>
+        button {
+            background-color: lightblue;
+        }
+        textarea {
+            width: 800px;
+            height: 250px;
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Story Editor</h1>
+    <label>What's your story called? </label> <input id="storyTitle"><br>
+    <button onclick="findStory()">Find and Edit Story</button>
+    <button onclick="saveStory()">Save Your Story</button>
+    <button onclick="showStory()">Show Your Story</button><br>
+    <textarea id="story" placeholder="Enter your story here..."></textarea>
+
+    <div id="storyLocation"></div>
+</body>
+</html>
