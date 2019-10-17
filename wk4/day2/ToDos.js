@@ -70,6 +70,7 @@ class ToDos {
         this.listToDos();
     }
     listToDos() {
+        debugger;
         console.log('worked');
     }
 }
