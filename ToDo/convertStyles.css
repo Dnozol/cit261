@@ -4,6 +4,26 @@ h1 {
 
 form {
   background-color: #DDDDDD;
+  border-radius: 1em;
+  padding: 1em;
+}
+
+body {
+  margin: 10%;
+}
+
+span {
+  margin: 10px;
+  text-align: center;
+}
+
+ul li:nth-child(odd) {
+  background-color: #bbb;
+}
+
+li {
+  padding: 5px;
+  list-style-type: none;
 }
 
 /*# sourceMappingURL=convertStyles.css.map */

@@ -12,6 +12,7 @@ function bindTouch(elementSelector, callback) {
         event.preventDefault();
         callback();
     });
+
     element.addEventListener('click', callback);
 }
 
@@ -34,6 +35,30 @@ function saveTask (task, key) {
     writeToLS(key);
 }
 
+function renderToDoList(taskList, element) {
+    element.innerHTML = "";
+    console.log(taskList);
+    taskList.forEach(task => {
+        const listItem = celi();
+        listItem.innerHTML = `<input type="checkbox"><label>${task.name}</label>`;
+        // let t = document.createTextNode(JSON.stringify(task));
+                
+        element.appendChild(listItem);
+    });
+}
+
+function toggleComplete(task) {
+    console.log(task);
+    // if(task.completed) {
+    //     // task is completed, uncomplete it
+    //     task.completed = false;
+    // } else {
+    //     task.completed = true;
+
+    // }
+}
+
+
 class Tasks {
     // key is for using LocalStorage
     constructor(listElement, key) {
@@ -41,6 +66,14 @@ class Tasks {
         this.key = key;
         // we need to bind 'this' so it doesn't get changed when it's passed
         bindTouch('#addButton', this.addTask.bind(this)); 
+        let startList = readFromLS(key);
+        startList.forEach(task => {
+            taskList.push(task);
+        });
+        this.showList();
+        bindTouch('#taskList', event => {
+            toggleComplete(event);
+        });
     }
 
     //functions
@@ -51,14 +84,7 @@ class Tasks {
         this.showList();
     }
     showList() {
-        const listItem = celi();
-
-        taskList.forEach(task => {
-
-            listItem.appendChild(document.createTextNode(JSON.stringify(task)));
-        });
-        console.log(listItem);
-        qs('#taskList').innerHTML = listItem;
+        renderToDoList(taskList, qs("#taskList"));
     }
 }
 
