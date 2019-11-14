@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   
+    <title>Document</title>
+    <style>
+        #list {
+            display: flex;
+            flex-wrap: wrap;
+            list-style-type: none;
+            justify-items: space-around;
+            width: 100vw;
+            padding-left: 0;
+            flex: 1 0 80vw;
+        }
+
+        #list li {
+            padding: 10px;
+            border: 1px solid;
+        }
+
+        main {
+            display: flex;
+        }
+        #details {
+            width: 100vw;
+            transform: translatex(100vw);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pokemon!</h1>
+    </header>
+    <main>
+        <ul id="list"></ul>
+        <section id="details">
+            <button>&lt;-Back</button>
+            <img src="" alt="">
+            <p>Name: <span id="name"></span></p>
+            <p>Number: <span id="number"></span> </p> 
+        </section>
+    </main>
+    <script scr="app08.js"></script>
+</body>
+</html>
