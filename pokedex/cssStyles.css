@@ -73,7 +73,7 @@ body {
   top: 0;
   border: 2px solid black;
   width: 100vw;
-  height: 50vh;
+  height: 100vh;
   background-color: red;
   margin-left: 100%;
   transition: 1s 0.5s;
@@ -97,7 +97,7 @@ body {
 
   #info {
     grid-template-columns: 1fr 2fr 2fr 1fr;
-    grid-template-areas: "back title title ." ". sprites sprites ." ". nSprite sSprite ." ". movesTitle movesTitle ." ". moveset moveset .";
+    grid-template-areas: "back title title ." ". sprites sprites ." ". nSprite sSprite ." ". normImg shinImg ." ". movesTitle movesTitle ." ". moveset moveset .";
   }
 }
 

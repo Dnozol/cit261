@@ -82,7 +82,7 @@ async function getOnePokemon(id) {
     infoElements[3].innerHTML = data.name.charAt(0).toUpperCase() + data.name.substring(1);
     // add the sprites
     infoElements[9].innerHTML = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" alt="${data.name}">`;
-    infoElements[10].innerHTML= `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png" alt="${data.name}">`;
+    infoElements[11].innerHTML= `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png" alt="${data.name}">`;
    
 }
 
