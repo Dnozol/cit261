@@ -61,7 +61,8 @@ function queryAll() {
         let pokemonId = event.currentTarget.id;
         if(pokemonId != null) {
             getOnePokemon(pokemonId);
-            document.getElementById('info').style.margin = "0"; 
+            document.getElementById('info').style.opacity = "1"; 
+            document.getElementById('info').style.zIndex = "1"; 
         }
        });
     }
@@ -70,20 +71,30 @@ function queryAll() {
 
 async function getOnePokemon(id) {
     let data = await getJson(`pokemon/${id}`);
-    let infoElements = document.getElementById('info').childNodes;
-    console.log(infoElements);
-    /*
-        infoElements[3]: name
-        5: container for images
-        7: container for abilities
-        11: ul for moveset
-    */
+    
     // change the title to the Pokemon's name
-    infoElements[3].innerHTML = data.name.charAt(0).toUpperCase() + data.name.substring(1);
+    document.getElementById("title").innerHTML = data.name.charAt(0).toUpperCase() + data.name.substring(1);
     // add the sprites
-    infoElements[9].innerHTML = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" alt="${data.name}">`;
-    infoElements[11].innerHTML= `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png" alt="${data.name}">`;
-   
+    document.getElementById("normImg").innerHTML = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" alt="${data.name}">`;
+    document.getElementById("shinImg").innerHTML= `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png" alt="${data.name}">`;
+    
+    // create a list of the abilities and moves
+    let abilitesList = document.getElementById("abilitiesSection");
+    let movesList = document.getElementById("movesList");
+    // clear out the current contents
+    abilitesList.innerHTML = "";
+    movesList.innerHTML = "";
+
+    for(let i = 0; i < data.abilities.length; i++){
+        let item = `<p>${data.abilities[i].ability.name.charAt(0).toUpperCase() + data.abilities[i].ability.name.substring(1)}</p>`;
+        abilitesList.innerHTML += item;
+    }
+
+    for(let i = 0; i < data.moves.length; i++) {
+        let item = `<div data-url="${data.moves[i].move.url}">${data.moves[i].move.name.charAt(0).toUpperCase() + data.moves[i].move.name.substring(1)}</div>`;
+        console.log(item);
+        movesList.innerHTML += item;
+    }
 }
 
 // multiple event listeners
@@ -100,7 +111,8 @@ function bindTouch(elementSelector, callback) {
 }
 
 bindTouch('#back', event => {
-    document.getElementById('info').style.margin = '0 0 0 100%';
+    document.getElementById('info').style.opacity = "0";
+    document.getElementById('info').style.zIndex = "-1"; 
 });
 
 

@@ -22,15 +22,22 @@
     <div id="container">
     </div>
     <div id="info">
-        <button id="back" type="button"><- back</button>
-        <h1 id="title"></h1>
-        <span id="normalSprite">Normal</span>
-        <span id="shinySprite">Shiny</span>
-        <span id="normImg"></span>
-        <span id="shinImg"></span>
-        <h4 id="movesTitle">Moveset</h4>
-        <ul id="moveset">six</ul>
-        
+        <div id="content">
+            <h1 id="title"></h1>
+            <button id="back" type="button">Close</button>
+            <div class="imgSection">
+                <span id="normalSprite">Normal</span>
+                <span id="shinySprite">Shiny</span>
+                <span id="normImg"></span>
+                <span id="shinImg"></span>
+            </div>
+            <h2>Abilities</h2>
+            <div id="abilitiesSection" class="abilitiesSection"></div>
+            <div class="moveSection">
+                <h2 class="movesTitle">Moveset</h4>
+                <div id="movesList"></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
