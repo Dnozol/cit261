@@ -90,7 +90,7 @@ body {
 #movesList {
     margin: auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
     justify-content: center;
     div {
@@ -110,11 +110,9 @@ body {
         grid-template-columns: 1fr 1fr 1fr;
         margin: 0 20px;
     }
-    #content {
-        width: 50%;
-    }
-    .moveList {
-        grid-template-columns: 1fr 1fr;
+    
+    #movesList {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
 
@@ -122,10 +120,16 @@ body {
     #container{
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+    
 }
 
 @media only screen and (min-width: 930px) {
    #container{
        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
    }
+   #info{
+        #content {
+            width: 50%;
+        }
+    }
 }
