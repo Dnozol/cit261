@@ -92,7 +92,6 @@ async function getOnePokemon(id) {
 
     for(let i = 0; i < data.moves.length; i++) {
         let item = `<div data-url="${data.moves[i].move.url}">${data.moves[i].move.name.charAt(0).toUpperCase() + data.moves[i].move.name.substring(1)}</div>`;
-        console.log(item);
         movesList.innerHTML += item;
     }
 }
