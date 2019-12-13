@@ -1,7 +1,7 @@
-
+import {geid} from './utilities.js';
 const baseUrl = 'https://pokeapi.co/api/v2/';
 
-const myList = document.getElementById('container');
+const myList = geid('container');
 
 
 export async function createList(gen) {
@@ -58,14 +58,14 @@ export async function getOnePokemon(id) {
     let data = await getJson(`pokemon/${id}`);
     
     // change the title to the Pokemon's name
-    document.getElementById("title").innerHTML = data.name.charAt(0).toUpperCase() + data.name.substring(1);
+    geid("title").innerHTML = data.name.charAt(0).toUpperCase() + data.name.substring(1);
     // add the sprites
-    document.getElementById("normImg").innerHTML = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" alt="${data.name}">`;
-    document.getElementById("shinImg").innerHTML= `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png" alt="${data.name}">`;
+    geid("normImg").innerHTML = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" alt="${data.name}">`;
+    geid("shinImg").innerHTML= `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${id}.png" alt="${data.name}">`;
     
     // create a list of the abilities and moves
-    let abilitesList = document.getElementById("abilitiesSection");
-    let movesList = document.getElementById("movesList");
+    let abilitesList = geid("abilitiesSection");
+    let movesList = geid("movesList");
     // clear out the current contents
     abilitesList.innerHTML = "";
     movesList.innerHTML = "";
@@ -88,8 +88,8 @@ function queryAll() {
         let pokemonId = event.currentTarget.id;
         if(pokemonId != null) {
             getOnePokemon(pokemonId);
-            document.getElementById('info').style.opacity = "1"; 
-            document.getElementById('info').style.zIndex = "1"; 
+            geid('info').style.opacity = "1"; 
+            geid('info').style.zIndex = "1"; 
         }
        });
     }
